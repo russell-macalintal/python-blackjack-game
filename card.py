@@ -12,3 +12,15 @@ class Card:
 
     def __str__(self):
         return self.rank + ' of ' + self.suit
+
+
+
+# Test functionality
+if __name__ == '__main__':
+    jack_hearts = Card('Hearts', 'Jack')
+    print(jack_hearts)
+    print(f'Value: {jack_hearts.value}')
+
+    ace_spades = Card('Spades', 'Ace')
+    print(ace_spades)
+    print(f'Value: {ace_spades.value}')
