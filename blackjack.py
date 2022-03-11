@@ -37,7 +37,23 @@ while not end_player_turn and player.get_total() <= 21:
         print('BUST! GAME OVER. DEALER WINS!')
         quit()                                      # If player goes above 21, game automatically closes. Dealer does not need to show cards.
 
+
 dealer.get_card(new_deck.deal_card())
 print('\nDealer shows both cards...')
 print(dealer)
 print(f'Card total: {dealer.get_total()}')
+
+
+while dealer.get_total() <= 21 and dealer.get_total() < player.get_total():
+    print('Dealer is hitting...')
+    dealer.get_card(new_deck.deal_card())
+
+    print(dealer)
+    print(f'Card total: {dealer.get_total()}')
+
+
+# Check winning conditions at the end
+if dealer.get_total() > 21:
+    print(f'DEALER BUSTS! GAME OVER. {player.name} WINS!')
+else:
+    print('DEALER WINS!')
