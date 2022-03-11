@@ -17,7 +17,6 @@ class Deck:
         return self.all_cards.pop()
 
 
-
 # Test functionality
 if __name__ == "__main__":
     deck = Deck()
