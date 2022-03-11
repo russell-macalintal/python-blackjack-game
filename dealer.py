@@ -16,6 +16,13 @@ class Dealer:
     def get_card(self, new_card):
         self.hand.append(new_card)
 
+    def get_total(self):
+        total = 0
+        if len(self.hand) > 0:
+            for card in self.hand:
+                total += card.value
+        return total
+
 
 
 if __name__ == "__main__":
@@ -25,3 +32,4 @@ if __name__ == "__main__":
     dealer.get_card(deck.deal_card())
     dealer.get_card(deck.deal_card())
     print(dealer)
+    print(f'Total value of cards: {dealer.get_total()}')

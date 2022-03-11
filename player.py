@@ -15,6 +15,13 @@ class Player:
     def get_card(self, new_card):
         self.hand.append(new_card)
 
+    def get_total(self):
+        total = 0
+        if len(self.hand) > 0:
+            for card in self.hand:
+                total += card.value
+        return total
+
 
 if __name__ == "__main__":
     deck = deck.Deck()
@@ -23,3 +30,4 @@ if __name__ == "__main__":
     player.get_card(deck.deal_card())
     player.get_card(deck.deal_card())
     print(player)
+    print(f'Total value of cards: {player.get_total()}')
