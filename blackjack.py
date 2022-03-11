@@ -1,6 +1,7 @@
 import deck
 import player
 import dealer
+import time
 
 player = player.Player('Jack Black')
 dealer = dealer.Dealer()
@@ -46,6 +47,7 @@ print(f'Card total: {dealer.get_total()}')
 
 while dealer.get_total() <= 21 and dealer.get_total() < player.get_total():
     print('Dealer is hitting...')
+    time.sleep(1)
     dealer.get_card(new_deck.deal_card())
 
     print(dealer)
