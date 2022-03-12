@@ -41,8 +41,12 @@ while not end_player_turn and player.get_total() <= 21:
     print(f'Card total: {player.get_total()}')
 
     if player.get_total() > 21:
-        print('BUST! GAME OVER. DEALER WINS!')
-        quit()                                      # If player goes above 21, game automatically closes. Dealer does not need to show cards.
+        if has_ace == 0:
+            print('BUST! GAME OVER. DEALER WINS!')
+            quit()                                      # If player goes above 21, game automatically closes. Dealer does not need to show cards.
+        else:
+            # INCLUDE CODE TO CHANGE INTERNAL VALUE OF 1 OR MORE ACE CARDS TO 1, INSTEAD OF 11
+            # MAY NEED TO ADD CODE BEFORE WHILE LOOP TO HANDLE EDGE CASE OF 2 ACES AT GAME START
 
 
 dealer.get_card(new_deck.deal_card())
