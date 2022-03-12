@@ -25,3 +25,4 @@ if __name__ == "__main__":
     deck.shuffle()
     top_card = deck.all_cards[-1]
     print(f'New top card: {top_card}')
+    print(f'Dealing: {deck.deal_card()}')

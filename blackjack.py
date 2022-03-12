@@ -7,8 +7,14 @@ player = player.Player('Jack Black')
 dealer = dealer.Dealer()
 new_deck = deck.Deck()
 new_deck.shuffle()
+has_ace = 0
 
+if new_deck.all_cards[-1].rank == "Ace":
+    has_ace += 1
 player.get_card(new_deck.deal_card())
+
+if new_deck.all_cards[-1].rank == "Ace":
+    has_ace += 1
 player.get_card(new_deck.deal_card())
 
 dealer.get_card(new_deck.deal_card())       # Only give the dealer one card for now to avoid having to hide the second card - second card will be dealt and 'revealed' once the player has completed their turn
