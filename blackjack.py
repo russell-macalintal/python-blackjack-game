@@ -10,6 +10,7 @@ new_deck.shuffle()
 has_ace = 0
 dealer_has_ace = 0
 
+
 if new_deck.all_cards[-1].rank == "Ace":
     has_ace += 1
 player.get_card(new_deck.deal_card())
@@ -17,6 +18,7 @@ player.get_card(new_deck.deal_card())
 if new_deck.all_cards[-1].rank == "Ace":
     has_ace += 1
 player.get_card(new_deck.deal_card())
+
 
 if new_deck.all_cards[-1].rank == "Ace":
     dealer_has_ace += 1
@@ -32,6 +34,15 @@ print(f'Card total: {dealer.get_total()}')
 if player.get_total() == 21:                # Checks for default win condition
     print(f'BLACKJACK!!! {player.name} WINS!!!')
     quit()
+
+if player.get_total() > 21:                 # Check for two Ace condition
+    for card in player.hand:
+        if card.value == 11:
+            card.value = 1
+            has_ace -= 1
+            break
+
+    print(f'Ace is automatically set to 1. New card total: {player.get_total()}')
 
 
 end_player_turn = False
@@ -66,8 +77,6 @@ while not end_player_turn and player.get_total() <= 21:
             print(f'Ace is automatically set to 1. New card total: {player.get_total()}')
 
 
-
-
 if new_deck.all_cards[-1].rank == "Ace":
     dealer_has_ace += 1
 dealer.get_card(new_deck.deal_card())
@@ -79,6 +88,15 @@ print(f'Card total: {dealer.get_total()}')
 if dealer.get_total() == 21:                # Checks for default win condition
     print(f'BLACKJACK!!! DEALER WINS!!!')
     quit()
+
+if dealer.get_total() > 21:
+    for card in dealer.hand:
+        if card.value == 11:
+            card.value = 1
+            dealer_has_ace -= 1
+            break
+
+    print(f'Ace is automatically set to 1. New card total: {dealer.get_total()}')
 
 
 while dealer.get_total() <= 21 and dealer.get_total() <= player.get_total():
