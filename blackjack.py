@@ -33,16 +33,6 @@ if player.get_total() == 21:                # Checks for default win condition
     print(f'BLACKJACK!!! {player.name} WINS!!!')
     quit()
 
-if player.get_total() > 21:
-    if has_ace > 0:
-        for card in player.hand:
-            if card.rank == "Ace":
-                card.value = 1
-                has_ace -= 1
-                break
-
-        print(f'Ace is automatically set to 1. New card total: {player.get_total()}')
-
 
 end_player_turn = False
 
@@ -89,16 +79,6 @@ print(f'Card total: {dealer.get_total()}')
 if dealer.get_total() == 21:                # Checks for default win condition
     print(f'BLACKJACK!!! DEALER WINS!!!')
     quit()
-
-if dealer.get_total() > 21:
-    if dealer_has_ace > 0:
-        for card in dealer.hand:
-            if card.rank == "Ace":
-                card.value = 1
-                dealer_has_ace -= 1
-                break
-
-        print(f'Ace is automatically set to 1. New card total: {dealer.get_total()}')
 
 
 while dealer.get_total() <= 21 and dealer.get_total() <= player.get_total():
