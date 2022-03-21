@@ -58,7 +58,7 @@ while not end_player_turn and player.get_total() <= 21:
             quit()                                      # If player goes above 21, game automatically closes. Dealer does not need to show cards.
         else:
             for card in player.hand:
-                if card.rank == "Ace":
+                if card.value == 11:
                     card.value = 1
                     has_ace -= 1
                     break
@@ -97,7 +97,7 @@ while dealer.get_total() <= 21 and dealer.get_total() <= player.get_total():
             quit()
         else:
             for card in dealer.hand:
-                if card.rank == "Ace":
+                if card.value == 11:
                     card.value = 1
                     dealer_has_ace -= 1
                     break
